@@ -31,5 +31,6 @@ Route::controller(IndexController::class)->group(function () {
     Route::get('/enquiry', 'enquiry')->name('frontend.enquiry');
     
 });
+require __DIR__ . '/admin.php';
 
 

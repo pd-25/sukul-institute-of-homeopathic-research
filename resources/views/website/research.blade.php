@@ -42,18 +42,22 @@
 
 
         <div class="row">
+            @forelse ($researchs as $research)
             <div class="col-lg-4">
                 <div class="inn-research-box">
-                    <img src="{{asset("f_assets/images/research-pic1.jpg")}}" class="img-fluid w-100">
-                    <h3>Publications on Ultra High Dilution</h3>
-                    <p>Proin dui elit, bibendum vitae metus non, dignissim vehicula metus ac sem pretium lorem, nec
-                        massa eu turpis.</p>
+                    <img src="{{asset("storage/". $research->image)}}" class="img-fluid w-100">
+                    <h3>{{$research->title}}</h3>
+                    <p>{{ Str::limit(strip_tags($research->description), 150, '...') }}</p>
                     <a href="single-research.html" class="rm-btn">Read More <i class="fa fa-angle-double-right"
                             aria-hidden="true"></i></a>
                 </div>
             </div>
+            @empty
+                
+            @endforelse
+            
 
-            <div class="col-lg-4">
+            {{-- <div class="col-lg-4">
                 <div class="inn-research-box">
                     <img src="{{asset("f_assets/images/research-pic1.jpg")}}" class="img-fluid w-100">
                     <h3>Other Publications</h3>
@@ -73,7 +77,7 @@
                     <a href="single-research.html" class="rm-btn">Read More <i class="fa fa-angle-double-right"
                             aria-hidden="true"></i></a>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
     </div>

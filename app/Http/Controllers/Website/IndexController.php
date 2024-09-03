@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Models\Research;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -21,7 +22,9 @@ class IndexController extends Controller
 
 
     public function research() {
-        return view("website.research");
+        return view("website.research", [
+            'researchs' => Research::orderBy("id", "DESC")->get()
+        ]);
     }
 
 
