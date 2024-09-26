@@ -31,47 +31,34 @@
         <div class="container">
             <div class="row mb-3">
                 <div class="col-lg-12">
-                    <h2>Council's Research Work</h2>
+                    <h2>{{ $journal->title }}</h2>
                     <p class="jdate"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> <b>Published :</b>
-                        1st November, 2024</p>
+                        {{ \Carbon\Carbon::parse($journal->created_at)->format('jS F, Y') }}</p>
                 </div>
                 <div class="col-lg-5">
                     <img src="{{asset("f_assets/images/journal-pic.jpg")}}" class="img-fluid w-100 mb-4">
                 </div>
-                <div class="col-lg-7">
-                    <p> Pellentesque scelerisque facilisis arcu, sed euismod felis tristique in. In volutpat faucibus
-                        nulla, a rutrum odio commodo eget. Integer non turpis et ante molestie mattis. Ut blandit ac
-                        arcu eu suscipit. Pellentesque dui ex, tristique non arcu et, interdum vehicula orci. Vestibulum
-                        ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse nisl
-                        quam, mollis posuere felis aliquet, feugiat porttitor ex. Integer eu risus eu ligula placerat
-                        fringilla. Nam ut lectus nec est maximus placerat. Ut mollis volutpat feugiat. Donec semper
-                        suscipit euismod. Ut vulputate vitae enim vel tincidunt. In eget dui velit. Nulla elementum erat
-                        sapien, vel iaculis libero iaculis at. Quisque pretium sagittis facilisis. Phasellus non nibh at
-                        massa sodales blandit ut et ante. </p>
-                    <p> Proin non dapibus velit. Suspendisse lacinia dolor eu luctus feugiat. Phasellus ac semper est.
-                        Curabitur rhoncus ipsum eget suscipit porta.</p>
+                @php
+                // Get the full description text without HTML tags
+                $description = strip_tags($journal->description);
+            
+                // Get the first 200 words
+                $firstPart = Str::words($description, 198, '');
+            
+                // Remove the first 200 words from the description and get the rest
+                $remainingText = trim(str_replace($firstPart, '', $description));
 
-                </div>
-                <div class="col-lg-12">
-                    <p>Sed hendrerit ligula non convallis posuere. Integer eget libero tincidunt, vestibulum metus sit
-                        amet, tincidunt augue. Nunc ultrices, massa sit amet mollis lacinia, nibh nisi pretium dolor,
-                        eget laoreet ante ante sed ipsum. Nunc augue nunc, volutpat eget mattis quis, imperdiet id dui.
-                        Etiam augue ipsum, tristique nec lectus id, tincidunt viverra mi. Nulla at augue a ante laoreet
-                        sodales non a enim. Sed non ullamcorper urna. Aenean imperdiet fringilla rhoncus. Nunc suscipit
-                        ipsum in magna blandit, a pulvinar sem imperdiet. Quisque malesuada rutrum scelerisque. Nulla ac
-                        est eu nisi accumsan mollis sed nec arcu. </p>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas laoreet pretium quam vel
-                        vehicula. In imperdiet fermentum ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit. Vivamus auctor metus urna, at euismod augue molestie a. Donec id nulla turpis. Donec ac
-                        mattis nulla. Sed odio odio, ornare eget dui in, sollicitudin condimentum mi. Cras tristique leo
-                        sodales consequat euismod. Fusce eget rutrum tellus. Aliquam accumsan turpis in molestie
-                        consequat. </p>
-                    <p> Aenean tincidunt ultrices vehicula. Maecenas egestas interdum massa sit amet mattis. Nam
-                        condimentum nibh a erat feugiat ultricies. Proin mattis euismod tincidunt. In pretium ligula ut
-                        mauris fermentum, at aliquet purus lobortis. Cras efficitur ipsum non felis posuere, ac
-                        vulputate mi bibendum. Cras quis sollicitudin orci. Curabitur fermentum malesuada erat vitae
-                        consectetur. </p>
-                </div>
+                
+            @endphp
+            
+            <div class="col-lg-7">
+                {!! $firstPart !!} <!-- Show first 200 words -->
+            </div>
+            
+            <div class="col-lg-12">
+                {!! $remainingText !!} <!-- Show the rest of the text -->
+            </div>
+            
 
             </div>
 

@@ -7,6 +7,9 @@ use App\Http\Controllers\admin\casestudy\CaseStudyController;
 use App\Http\Controllers\admin\dashboard\DashboardController;
 use App\Http\Controllers\admin\news\NewsController;
 use App\Http\Controllers\admin\ResearchController;
+use App\Http\Controllers\admin\JournalController;
+use App\Http\Controllers\admin\CourseController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('admin/login', [AuthController::class, 'showLogin'])->name('admin.showlogin');
@@ -20,6 +23,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
     // Route::resource('blogs', BlogController::class);
     // Route::resource('case-studies', CaseStudyController::class);
     // Route::resource('news-events', NewsController::class);
-
+    Route::resource('journal', JournalController::class);
+    Route::resource('courses', CourseController::class);
     Route::get('log-out', [AuthController::class, 'adminLogout'])->name('admin.logout');
 });

@@ -35,7 +35,7 @@ class ResearchController extends Controller
     {
         $request->validate([
             'title' => 'string',
-            'description' => 'string|max:5000',
+            'description' => 'string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
         $data = $request->only('title', 'description', 'image');
@@ -84,7 +84,7 @@ class ResearchController extends Controller
     {
         $request->validate([
             'title' => 'required|string',
-            'description' => 'required|string|max:5000',
+            'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 

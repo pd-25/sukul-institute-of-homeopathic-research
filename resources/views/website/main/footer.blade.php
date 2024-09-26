@@ -14,15 +14,15 @@
                 <div class="col-lg-4 snd-footer">
                     <h4>Quick Links</h4>
                     <ul class="main-footer-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="profile.html">Profile</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="research.html">Research</a></li>
-                        <li><a href="cancer-therapy.html">Cancer Therapy</a></li>
-                        <li><a href="journal.html">Journal</a></li>
-                        <li><a href="seminars.html">Seminars</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="enquiry.html">Enquiry</a></li>
+                        <li><a href="{{ route('frontend.index') }}">Home</a></li>
+                        <li><a href="{{ route('frontend.profile') }}">Profile</a></li>
+                        <li><a href="{{ route('frontend.aboutUs') }}">About Us</a></li>
+                        <li><a href="{{ route('frontend.research') }}">Research</a></li>
+                        <li><a href="{{ route('frontend.cancerTherapy') }}">Cancer Therapy</a></li>
+                        <li><a href="{{ route('frontend.journal') }}">Journal</a></li>
+                        <li><a href="{{route('frontend.commingSoon')}}">Seminars</a></li>
+                        <li><a href="{{ route('frontend.contact') }}">Contact</a></li>
+                        <li><a href="{{route('frontend.commingSoon')}}">Enquiry</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 trd-footer">
@@ -41,9 +41,9 @@
             <div class="row">
                 <div class="col-lg-6">
                     <ul class="footer-menu">
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
-                        <li><a href="refund-cancellation-policy.html">Refund & Cancellation Policy</a></li>
+                        <li><a href="{{route('frontend.commingSoon')}}">Privacy Policy</a></li>
+                        <li><a href="{{route('frontend.commingSoon')}}">Terms & Conditions</a></li>
+                        <li><a href="{{route('frontend.commingSoon')}}">Refund & Cancellation Policy</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-6">

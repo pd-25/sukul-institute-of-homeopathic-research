@@ -17,7 +17,18 @@
                 <span>Researches</span>
             </a>
         </li>
-
+        <li class="nav-item {{ Route::is('researches.index') ? 'active' : '' }}">
+            <a class="nav-link " href="{{ route('journal.index') }}">
+                <i class="ri-group-fill"></i>
+                <span>Journal</span>
+            </a>
+        </li>
+        <li class="nav-item {{ Route::is('blogs.index') ? 'active' : '' }}">
+            <a class="nav-link " href="{{route('courses.index')}}">
+                <i class="ri-group-fill"></i>
+                <span>Courses</span>
+            </a>
+        </li>
 
         {{-- <li class="nav-item {{ Route::is('blogs.index') ? 'active' : '' }}">
             <a class="nav-link " href="{{route('blogs.index')}}">

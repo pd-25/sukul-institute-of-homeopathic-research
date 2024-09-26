@@ -37,55 +37,24 @@
                         eget, auctor mi. Donec ultrices pellentesque tellus, ac vehicula neque mollis et. </p>
                 </div>
             </div>
-
+            @foreach($journal as $item)
             <div class="row journal-box mb-5">
                 <div class="col-lg-5">
-                    <img src="{{asset("f_assets/images/journal-pic.jpg")}}" class="img-fluid w-100" alt="...">
+                    <img src="{{asset("storage/". $item->image)}}" class="img-fluid w-100" alt="{{ $item->title }}">
                 </div>
                 <div class="col-lg-7 align-self-center">
-                    <h3>Council's Research Work</h3>
-                    <p class="jdate"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> <b>Published :</b>
-                        1st November, 2024</p>
-                    <p>Lorem ipsum dolor sit amet, consectesetur adipiscing elit. Proin dui elit, bibendum vitae metus
-                        non, sim vehicula elit. Ut id porta massa. Aliquam viverra, metus ac conntum libesiro pretiuiem
-                        nec tincidunt tortor masu turpis. Praesent eget aliquam velit. Vivamus viverra vulputate vonec
-                        vel venenatis massa. Aliquam erat volutpat eget efficitur dui.</p>
-                    <a href="single-journal.html" class="rm-btn-red mt-2">Read More <i
-                            class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                    <h3>{{ $item->title }}</h3>
+                    <p class="jdate">
+                        <i class="fa fa-calendar-check-o" aria-hidden="true"></i> 
+                        <b>Published:</b> {{ \Carbon\Carbon::parse($item->created_at)->format('jS F, Y') }}
+                    </p>
+                    <p>{{ Str::limit(strip_tags($item->description), 450, '...') }}</p>
+                    <a href="{{ route('frontend.singlejurnal', ['slug' => $item->slug]) }}" class="rm-btn-red mt-2">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                 </div>
             </div>
-            <div class="row journal-box mb-5">
-                <div class="col-lg-5">
-                    <img src="{{asset("f_assets/images/journal-pic.jpg")}}" class="img-fluid w-100" alt="...">
-                </div>
-                <div class="col-lg-7 align-self-center">
-                    <h3>Council's Research Work</h3>
-                    <p class="jdate"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> <b>Published :</b>
-                        1st November, 2024</p>
-                    <p>Lorem ipsum dolor sit amet, consectesetur adipiscing elit. Proin dui elit, bibendum vitae metus
-                        non, sim vehicula elit. Ut id porta massa. Aliquam viverra, metus ac conntum libesiro pretiuiem
-                        nec tincidunt tortor masu turpis. Praesent eget aliquam velit. Vivamus viverra vulputate vonec
-                        vel venenatis massa. Aliquam erat volutpat eget efficitur dui.</p>
-                    <a href="single-journal.html" class="rm-btn-red mt-2">Read More <i
-                            class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                </div>
-            </div>
-            <div class="row journal-box mb-5">
-                <div class="col-lg-5">
-                    <img src="{{asset("f_assets/images/journal-pic.jpg")}}" class="img-fluid w-100" alt="...">
-                </div>
-                <div class="col-lg-7 align-self-center">
-                    <h3>Council's Research Work</h3>
-                    <p class="jdate"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> <b>Published :</b>
-                        1st November, 2024</p>
-                    <p>Lorem ipsum dolor sit amet, consectesetur adipiscing elit. Proin dui elit, bibendum vitae metus
-                        non, sim vehicula elit. Ut id porta massa. Aliquam viverra, metus ac conntum libesiro pretiuiem
-                        nec tincidunt tortor masu turpis. Praesent eget aliquam velit. Vivamus viverra vulputate vonec
-                        vel venenatis massa. Aliquam erat volutpat eget efficitur dui.</p>
-                    <a href="single-journal.html" class="rm-btn-red mt-2">Read More <i
-                            class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                </div>
-            </div>
+        @endforeach
+        
+           
 
 
 

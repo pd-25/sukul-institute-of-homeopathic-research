@@ -24,13 +24,13 @@
                                         class="nav-link">Research</a> </li>
 
                                 <li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
-                                        href="#">Courses</a>
+                                        href="">Courses</a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="course-overview.html">Course
+                                        <li><a class="dropdown-item" href="{{route('frontend.course')}}">Course
                                                 Overview</a></li>
-                                        <li><a class="dropdown-item" href="fees-structure.html">Fees Structure</a>
+                                        <li><a class="dropdown-item" href="{{route('frontend.feesStructure')}}">Fees Structure</a>
                                         </li>
-                                        <li><a class="dropdown-item" href="online-application.html">Online
+                                        <li><a class="dropdown-item" href="{{route('frontend.commingSoon')}}">Online
                                                 Application</a></li>
                                     </ul>
                                 </li>
@@ -40,8 +40,8 @@
                                         Therapy</a> </li>
                                 <li class="nav-item"> <a href="{{ route('frontend.journal') }}"
                                         class="nav-link">Journal</a> </li>
-                                {{-- <li class="nav-item"> <a href="{{ route('frontend.seminars') }}"
-                                        class="nav-link">Seminars</a> </li> --}}
+                                <li class="nav-item"> <a href="{{route('frontend.commingSoon')}}"
+                                        class="nav-link">Seminars</a> </li>
                                 <li class="nav-item"> <a href="{{ route('frontend.contact') }}"
                                         class="nav-link">Contact</a> </li>
                                 {{-- <li class="nav-item"> <a href="{{ route('frontend.enquiry') }}"

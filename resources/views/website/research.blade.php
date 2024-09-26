@@ -48,7 +48,7 @@
                     <img src="{{asset("storage/". $research->image)}}" class="img-fluid w-100">
                     <h3>{{$research->title}}</h3>
                     <p>{{ Str::limit(strip_tags($research->description), 150, '...') }}</p>
-                    <a href="single-research.html" class="rm-btn">Read More <i class="fa fa-angle-double-right"
+                    <a href="{{ route('frontend.singleresearch', ['slug' => $research->slug]) }}" class="rm-btn">Read More <i class="fa fa-angle-double-right"
                             aria-hidden="true"></i></a>
                 </div>
             </div>
